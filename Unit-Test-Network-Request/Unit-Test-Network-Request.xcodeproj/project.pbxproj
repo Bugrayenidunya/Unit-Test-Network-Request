@@ -99,13 +99,9 @@
 		133E7F0C28BF759B0011385B /* Unit-Test-Network-Request */ = {
 			isa = PBXGroup;
 			children = (
-				133E7F0D28BF759B0011385B /* AppDelegate.swift */,
-				133E7F0F28BF759B0011385B /* SceneDelegate.swift */,
-				133E7F1128BF759B0011385B /* ViewController.swift */,
-				133E7F1328BF759B0011385B /* Main.storyboard */,
-				133E7F1628BF759C0011385B /* Assets.xcassets */,
-				133E7F1828BF759C0011385B /* LaunchScreen.storyboard */,
-				133E7F1B28BF759C0011385B /* Info.plist */,
+				13A9D66328BF7D2C00764229 /* Modules */,
+				13A9D66628BF7D5000764229 /* Resources */,
+				13A9D66228BF7D1F00764229 /* Supports */,
 			);
 			path = "Unit-Test-Network-Request";
 			sourceTree = "<group>";
@@ -125,6 +121,50 @@
 				133E7F3028BF759C0011385B /* Unit_Test_Network_RequestUITestsLaunchTests.swift */,
 			);
 			path = "Unit-Test-Network-RequestUITests";
+			sourceTree = "<group>";
+		};
+		13A9D66228BF7D1F00764229 /* Supports */ = {
+			isa = PBXGroup;
+			children = (
+				133E7F1B28BF759C0011385B /* Info.plist */,
+				133E7F0D28BF759B0011385B /* AppDelegate.swift */,
+				133E7F0F28BF759B0011385B /* SceneDelegate.swift */,
+			);
+			path = Supports;
+			sourceTree = "<group>";
+		};
+		13A9D66328BF7D2C00764229 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				13A9D66428BF7D3700764229 /* Storyboards */,
+				13A9D66528BF7D4400764229 /* ViewController */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		13A9D66428BF7D3700764229 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				133E7F1328BF759B0011385B /* Main.storyboard */,
+				133E7F1828BF759C0011385B /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		13A9D66528BF7D4400764229 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				133E7F1128BF759B0011385B /* ViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		13A9D66628BF7D5000764229 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				133E7F1628BF759C0011385B /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -439,7 +479,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = RMTY324S26;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Unit-Test-Network-Request/Info.plist";
+				INFOPLIST_FILE = "Unit-Test-Network-Request/Supports/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -454,7 +494,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -467,7 +507,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = RMTY324S26;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Unit-Test-Network-Request/Info.plist";
+				INFOPLIST_FILE = "Unit-Test-Network-Request/Supports/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -482,7 +522,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
