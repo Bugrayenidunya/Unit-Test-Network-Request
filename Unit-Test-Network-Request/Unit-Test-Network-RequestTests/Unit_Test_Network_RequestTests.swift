@@ -17,20 +17,53 @@ class Unit_Test_Network_RequestTests: XCTestCase {
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
+    
+    func testGetUser_withValidURL_shouldReturnUsers() {
+        // Arrange
+        let sut = makeSUT()
+        
+        // Act
+        let mockUser = User(id: 0, name: "Bugra", username: "bugrayndny", email: "", phone: "", website: "")
+        injectMockData(user: mockUser)
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+        let exp = expectation(description: "Wait for response")
+        let requestModel = UserRequestModel()
+        
+        // Assert
+        sut.retriveUser(request: requestModel) { result in
+            defer { exp.fulfill() }
+            
+            switch result {
+            case .success(let users):
+                XCTAssertTrue(!users.isEmpty, "Expected Users array instead found empty \(users)")
+                
+            case .failure(let error):
+                XCTAssertNil(error, "Error should be nil instead found \(error)")
+            }
+        }
+        
+        wait(for: [exp], timeout: 1.0)
     }
+    
+    // MARK: - Helpers
+    private func makeSUT() -> UserAPI {
+        URLProtocol.registerClass(MockURLProtocol.self)
+        
+        let urlSessionConfiguration = URLSessionConfiguration.default
+        urlSessionConfiguration.protocolClasses?.insert(MockURLProtocol.self, at: .zero)
+        
+        let urlSession = URLSession(configuration: urlSessionConfiguration)
+        let networkManager = NetworkManager(session: urlSession)
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+        return UserAPI(networkManager: networkManager)
+    }
+    
+    private func injectMockData(user: User) {
+        let mockUsers = [user]
+        let mockData = try? JSONEncoder().encode(mockUsers)
+        
+        MockURLProtocol.requestHandler = { request in
+            return (HTTPURLResponse(), mockData!)
         }
     }
-
 }
